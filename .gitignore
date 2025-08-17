@@ -1,0 +1,18 @@
+# dependencias / caches
+node_modules/
+.pnpm-store/
+*.log
+
+# builds
+dist/
+build/
+.tmp/
+.cache/
+
+# SO / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# env
+.env
