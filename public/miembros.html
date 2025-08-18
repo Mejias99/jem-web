@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="./assets/css/output.css" rel="stylesheet">
+    <title>Zona de Miembros</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
-    
+<body class="font-['Urbanist'] bg-gray-50">
+    <div id="header"></div>
+    <main class="pt-[64px] p-4">
+        <section class="max-w-3xl mx-auto py-10 text-center">
+            <h1 class="text-3xl font-bold mb-4">Zona de Miembros</h1>
+            <p class="text-gray-600">Contenido exclusivo para miembros próximamente disponible.</p>
+        </section>
+    </main>
+    <footer></footer>
+    <script type="module">
+        // Cargar partials
+        async function loadPartial(targetId, url){
+            const el = document.getElementById(targetId);
+            const resp = await fetch(url, { cache: 'no-cache' });
+            el.innerHTML = await resp.text();
+            return el;
+        }
+
+        // Header
+        const headerEl = await loadPartial('header', 'partials/header.html');
+        const { initHeader } = await import('/js/header.js');
+        initHeader(headerEl);
+
+        // Footer (sin lógica adicional)
+        await loadPartial('footer', '/partials/footer.html');
+    </script>
 </body>
 </html>
