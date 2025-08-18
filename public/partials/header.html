@@ -1,0 +1,32 @@
+<!-- Header fijo -->
+<header class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <!-- Logo sin enlace -->
+    <div class="flex items-center">
+      <img src="assets/img/logo-grises.png" alt="Juventud en Marcha" class="h-10 w-12">
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <button id="menu-toggle"
+            aria-label="Abrir menú"
+            aria-controls="menu"
+            class="flex flex-col justify-between w-8 h-6 focus:outline-none">
+      <span id="line1" class="block h-0.5 w-full bg-gray-800 rounded transition-transform duration-200"></span>
+      <span id="line2" class="block h-0.5 w-full bg-gray-800 rounded transition-opacity duration-200"></span>
+      <span id="line3" class="block h-0.5 w-full bg-gray-800 rounded transition-transform duration-200"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Menú desplegable (debajo del header) -->
+<nav id="menu"
+     role="navigation"
+     aria-label="Principal"
+     class="bg-white shadow-md overflow-hidden max-h-0 transition-[max-height] duration-300 fixed top-[64px] left-0 w-full z-40"
+     hidden>
+  <ul class="flex flex-col gap-2 px-4 py-3">
+    <li><a href="info.html" class="block text-gray-700 hover:text-blue-600">Información</a></li>
+    <li><a href="inscripcion.html" class="block text-gray-700 hover:text-blue-600">Inscripción</a></li>
+    <li><a href="miembros.html" class="block text-gray-700 hover:text-blue-600">Miembros</a></li>
+  </ul>
+</nav>

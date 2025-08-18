@@ -21,101 +21,44 @@
             window.location.href = destino;
             }
     </script>
-    f
-    <style>
-        /* iPhone 12/13/14, Pixel 6 (390x844) */
-        @media (aspect-ratio: 390/844), (aspect-ratio: 19.5/9) {
-            .bg-ar-219 {
-            background-size: cover;
-            background-position: center;
-            }
-        }
-        /* Galaxy S21, Xiaomi (20:9) */
-        @media (min-aspect-ratio: 0.44) and (max-aspect-ratio: 0.46) {
-            .bg-ar-20-9 {
-                background-size: 105%;
-                background-position: center 50%;
-            }
-        }
-        /* Solo para 19.5:9 (≈0.462) iPhone XR */
-        @media (min-aspect-ratio: 0.461) and (max-aspect-ratio: 0.463) {
-            .bg-ar-16-9 {
-                background-size: 102%;
-                background-position: center center;
-            }
-        }
-        /* Galaxy S9 (18.5:9) */
-        @media (aspect-ratio: 37/18) {
-            .bg-ar-185-9 {
-            background-size: 120%;
-            background-position: center 15%;
-            }
-        }
-        /* S8+ (≈0.4864) */
-        @media (min-aspect-ratio: 0.485) and (max-aspect-ratio: 0.488) {
-            .bg-ar-185-9 {
-            background-size: 110%;
-            background-position: center 50%;
-            }
-        }
-        
-        /* Pantallas más estándar, tipo iPhone SE (≈16:9 = ~0.562) */
-        @media (min-aspect-ratio: 0.55) and (max-aspect-ratio: 0.57) {
-            .bg-ar-16-9 {
-                background-size: 95%;
-                background-position: center center;
-                background-color: #148E75;
-            }
-        }
-        /* iPads / Tablets (4:3) */
-        @media (min-aspect-ratio: 0.74) and (max-aspect-ratio: 0.76) {
-            .bg-ar-4-3 {
-                background-size: 63%;
-                background-position: center center;
-                background-color: #148E75;
-            }
-        }
-        /* iPads / Tablets (otros) */
-        @media (min-aspect-ratio: 0.693) and (max-aspect-ratio: 0.697) {
-            .bg-ar-custom-0_694 {
-                background-color: #148E75;
-                background-size: 67%;
-                background-position: center center;
-            }
-        }
-    </style>
 </head>
 
-<body class="min-h-screen flex items-center justify-center relative md:bg-[url('./assets/bg-desktop.png')] md:bg-no-repeat 
-md:bg-cover md:bg-center bg-[#148E75]">
-    <!-- Fondo móvil con ajustes por aspect-ratio -->
-    <div
-        class="absolute inset-0 bg-[url('../../assets/img/bg-index-mb.png')] bg-no-repeat z-0 
-        bg-ar-219 bg-ar-20-9 bg-ar-185-9 bg-ar-16-9 bg-ar-4-3 bg-ar-1-1 bg-ar-custom-0_694">
-    </div>
+<body class= "relative min-h-svh overflow-hidden flex items-center justify-center bg-[#148E75] md:bg-[url('assets/img/bg-index-desktop.jpg')] md:bg-no-repeat md:bg-cover md:bg-center">
+    <!-- Fondo móvil en dos capas (oculto en desktop) -->
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-[50svh]
+                bg-[url('assets/img/bg-index-mb-up.png')] bg-no-repeat bg-top bg-contain
+                md:hidden"></div>
 
-    <div class="bg"></div>
-    <!-- Capa de desenfoque -->
-    <div class="absolute inset-0 bg-black/40" style="backdrop-filter: blur(2px);" ></div>
-    <!-- Modal -->
-    <div class="prose relative z-10 bg-white/80 p-6 rounded-2xl shadow-lg max-w-md w-full text-center" style="background-color: #67968c;">
-        <h2 class="text-3xl font-semibold font-urbanist mb-4 mt-2.5">¿Conoces Juventud en Marcha?</h2>
-        <h1 class="text"></h1>
-        <p class="mb-6 text-gray-700">Elige una opción para continuar</p>
-        <div class="flex flex-col gap-3">
-            <button onclick="redirigir('info.html')"
-                class="hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-xl transition">
-                No, ¿qué es? 🤔
-            </button>
-            <button onclick="redirigir('inscripcion.html')"
-                class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-xl transition">
+    <div class="pointer-events-none absolute -inset-x-0 bottom-0 h-[50svh]
+                bg-[url('assets/img/bg-index-mb-down.png')] bg-no-repeat bg-bottom bg-contain
+                md:hidden"></div>
+    <!-- Capa de desenfoque sobre el fondo -->
+    <div class="absolute inset-0 bg-black/40 [backdrop-filter:blur(2px)]"></div>
+
+    <!-- Contenido (espaciado seguro para no pisar las franjas) -->
+    <main class="relative z-10 w-full max-w-md px-4 md:pt-24 md:pb-24">
+
+        <section class="bg-white/80 rounded-4xl shadow-lg p-5.5 text-center" role="dialog" aria-labelledby="t">
+            <h2 id="t" class="text-3xl font-semibold font-[Urbanist] mb-4 mt-1.5">¿Conoces Juventud en Marcha?</h2>
+            <p class="mb-6 text-gray-500">Elige una opción para continuar</p>
+
+            <div class="flex flex-col gap-4.5">
+                <button onclick="location.href='info.html'"
+                        class="bg-gradient-to-r from-[#e26872] to-red-500/90 hover:bg-gray-400 text-white/80 font-semibold py-3 px-4 rounded-2xl shadow-md transition transform hover:scale-105 hover:shadow-lg active:scale-90">
+                No, ¿qué es?
+                </button>
+
+                <button onclick="location.href='inscripcion.html'"
+                        class="shadow-md hover:shadow-lg bg-gradient-to-r from-[#148E75] to-[#04e700] hover:bg-indigo-700 text-white/80 font-semibold py-3 px-4 rounded-2xl transition">
                 Sí, ya he visto cosas
-            </button>
-            <button onclick="redirigir('miembros.html')"
-                class="bg-gray-400 hover:bg-emerald-700 text-white font-semibold py-2 px-4 rounded-xl transition">
+                </button>
+
+                <button onclick="location.href='miembros.html'"
+                        class="shadow-md hover:shadow-lg bg-gradient-to-r from-[#e0aa26] to-[#efef00] hover:bg-emerald-700 text-gray-800 font-semibold py-3 px-4 rounded-2xl transition">
                 Soy miembro
-            </button>
-        </div>
-    </div>
+                </button>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
