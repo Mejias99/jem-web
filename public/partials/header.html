@@ -3,7 +3,22 @@
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
     <!-- Logo sin enlace -->
     <div class="flex items-center">
-      <img src="assets/img/logo-grises.png" alt="Juventud en Marcha" class="h-10 w-12">
+      <img
+        src="assets/img/logo-grises.png"
+        alt="Juventud en Marcha"
+        class="h-10 w-auto origin-left scale-200 md:scale-150 -translate-x-2"
+      />
+    </div>
+
+    <!-- Derecha: CTA + hamburguesa -->
+    <div class="flex items-center gap-4.5">
+      <!-- Botón Inscribirse -->
+      <a href="inscripcion.html"
+         class="inline-flex items-center rounded-full px-7 sm:px-4 py-2 text-m sm:text-base font-semibold
+                text-white bg-[#148E75] hover:bg-emerald-700 active:bg-emerald-900
+                whitespace-nowrap shadow focus:outline-none focus:ring-2 focus:ring-emerald-200 focus:ring-offset-2 translate-x-10">
+        Participa ahora
+      </a>
     </div>
 
     <!-- Botón hamburguesa -->
@@ -11,9 +26,9 @@
             aria-label="Abrir menú"
             aria-controls="menu"
             class="flex flex-col justify-between w-8 h-6 focus:outline-none">
-      <span id="line1" class="block h-0.5 w-full bg-gray-800 rounded transition-transform duration-200"></span>
-      <span id="line2" class="block h-0.5 w-full bg-gray-800 rounded transition-opacity duration-200"></span>
-      <span id="line3" class="block h-0.5 w-full bg-gray-800 rounded transition-transform duration-200"></span>
+      <span id="line1" class="block h-0.75 w-full bg-gray-800 rounded transition-transform duration-200"></span>
+      <span id="line2" class="block h-0.75 w-full bg-gray-800 rounded transition-opacity duration-200"></span>
+      <span id="line3" class="block h-0.75 w-full bg-gray-800 rounded transition-transform duration-200"></span>
     </button>
   </div>
 </header>
@@ -24,9 +39,9 @@
      aria-label="Principal"
      class="bg-white shadow-md overflow-hidden max-h-0 transition-[max-height] duration-300 fixed top-[64px] left-0 w-full z-40"
      hidden>
-  <ul class="flex flex-col gap-2 px-4 py-3">
-    <li><a href="info.html" class="block text-gray-700 hover:text-blue-600">Información</a></li>
-    <li><a href="inscripcion.html" class="block text-gray-700 hover:text-blue-600">Inscripción</a></li>
-    <li><a href="miembros.html" class="block text-gray-700 hover:text-blue-600">Miembros</a></li>
+  <ul class="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 gap-3 px-4 py-3">
+    <li><a href="info.html" class="block rounded-lg px-3 py-2 hover:bg-gray-100 text-gray-700 hover:text-blue-600">Información</a></li>
+    <li><a href="inscripcion.html" class="block rounded-lg px-3 py-2 hover:bg-gray-100 text-gray-700 hover:text-blue-600">Inscripción</a></li>
+    <li><a href="miembros.html" class="block rounded-lg px-3 py-2 hover:bg-gray-100 text-gray-700 hover:text-blue-600">Miembros</a></li>
   </ul>
 </nav>

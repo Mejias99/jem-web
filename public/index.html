@@ -11,8 +11,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Nos conoces?</title>
-    <!-- Preconexiones y carga de fuente Urbanist -->
+    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tu tema/utilidades globales -->
+    <link href="assets/css/jem.css" rel="stylesheet" type="text/tailwindcss">
+    <!-- Preconexiones y carga de fuente Urbanist -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -38,17 +41,17 @@
             <p class="mb-6 text-gray-500">Elige una opción para continuar</p>
 
             <div class="flex flex-col gap-4.5">
-                <button onclick="location.href='info.html'"
+                <button type="button" onclick="location.href='info.html'"
                         class="bg-gradient-to-r from-[#e26872] to-red-500/90 hover:bg-gray-400 text-white/80 font-semibold py-3 px-4 rounded-2xl shadow-md transition transform hover:scale-105 hover:shadow-lg active:scale-90">
                 No, ¿qué es?
                 </button>
 
-                <button onclick="location.href='inscripcion.html'"
+                <button type="button" onclick="location.href='inscripcion.html'"
                         class="shadow-md hover:shadow-lg bg-gradient-to-r from-[#148E75] to-[#04e700] hover:bg-indigo-700 text-white/80 font-semibold py-3 px-4 rounded-2xl transition">
                 Sí, ya he visto cosas
                 </button>
 
-                <button onclick="location.href='miembros.html'"
+                <button type="button" onclick="location.href='miembros.html'"
                         class="shadow-md hover:shadow-lg bg-gradient-to-r from-[#e0aa26] to-[#efef00] hover:bg-emerald-700 text-gray-800 font-semibold py-3 px-4 rounded-2xl transition">
                 Soy miembro
                 </button>

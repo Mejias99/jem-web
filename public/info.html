@@ -13,21 +13,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Qué es JeM?</title>
-    <!-- Tailwind CDN -->
+    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Tu tema/utilidades globales -->
+    <link href="assets/css/jem.css" rel="stylesheet" type="text/tailwindcss">
     <!-- Preconexiones y carga de fuente Urbanist -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script defer>
-            function redirigir(destino) {
-            window.location.href = destino;
-            }
-    </script>
 </head>
-<body class="font-['Urbanist'] bg-gray-50">
+<body class="font-['Urbanist'] bg-[#148E75]">
     <div id="header"></div>
-    <main class="pt-[64px]"></main>
+    <main class="pt-[64px]">
+        <section class="mx-auto max-w-6xl px-4 py-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[120px] md:auto-rows-[160px] gap-3">
+
+                <!-- Grande -->
+                <figure class="col-span-2 row-span-2 overflow-hidden rounded-2xl relative">
+                <img src="assets/img/mural-1.jpg" alt="Actividad de JeM 1"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                <figcaption class="sr-only">Actividad 1</figcaption>
+                </figure>
+
+                <!-- Pequeñas -->
+                <figure class="overflow-hidden rounded-2xl relative">
+                <img src="assets/img/mural-2.jpg" alt="Actividad de JeM 2"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                <figcaption class="sr-only">Actividad 2</figcaption>
+                </figure>
+
+                <figure class="overflow-hidden rounded-2xl relative">
+                <img src="assets/img/mural-3.jpg" alt="Actividad de JeM 3"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                <figcaption class="sr-only">Actividad 3</figcaption>
+                </figure>
+
+                <figure class="overflow-hidden rounded-2xl relative md:col-span-2">
+                <img src="assets/img/mural-4.jpg" alt="Actividad de JeM 4"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                <figcaption class="sr-only">Actividad 4</figcaption>
+                </figure>
+
+            </div>
+        </section>
+    </main>
     <footer></footer>
     <script type="module">
         // Cargar partials
@@ -40,11 +69,11 @@
 
         // Header
         const headerEl = await loadPartial('header', 'partials/header.html');
-        const { initHeader } = await import('/js/header.js');
+        const { initHeader } = await import('/public/js/header.js');
         initHeader(headerEl);
 
         // Footer (sin lógica adicional)
-        await loadPartial('footer', '/partials/footer.html');
+        await loadPartial('footer', 'partials/footer.html');
     </script>
 </body>
 </html>
