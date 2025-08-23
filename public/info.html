@@ -15,9 +15,9 @@
     <title>¿Qué es JeM?</title>
     <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Tu tema/utilidades globales -->
+    <!-- Tema/utilidades globales -->
     <link href="assets/css/jem.css" rel="stylesheet" type="text/tailwindcss">
-    <!-- Preconexiones y carga de fuente Urbanist -->
+    <!-- Fuente Urbanist -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -44,12 +44,6 @@
                 de calidad. Creemos en la organización, la cultura y la acción comunitaria.
                 </p>
 
-                <p class="mt-4 text-gray-700 md:text-lg">
-                Somos Juventud en Marcha: jóvenes trabajadores que organizamos actividades,
-                formación y campañas por barrios más vivos, empleo digno y servicios públicos
-                de calidad. Creemos en la organización, la cultura y la acción comunitaria.
-                </p>
-
                 <p class="mt-3 text-gray-400 italic">
                 "Si nadie se mueve, tendremos que movernos nosotros"
                 </p>
@@ -68,9 +62,9 @@
             <div class="relative">
 
                 <!-- Grid de reels -->
-                <div id="reels-grid" class="grid grid-cols-3 gap-3">
+                <div id="reels-grid" class="flex gap-3">
                     <!-- Reel 1 -->
-                    <article class="reel relative aspect-[9/16] rounded-2xl overflow-hidden bg-black transition-transform duration-300 will-change-transform ring-1 ring-black/10">
+                    <article class="reel relative aspect-[9/16] rounded-2xl overflow-hidden bg-black ring-1 ring-black/10">
                         <video class="absolute inset-0 h-full w-full object-cover" preload="metadata" playsinline muted>
                             <source src="assets/video/vivienda.mp4" type="video/mp4">
                         </video>
@@ -82,7 +76,7 @@
                     </article>
 
                     <!-- Reel 2 -->
-                    <article class="reel relative aspect-[9/16] rounded-2xl overflow-hidden bg-black transition-transform duration-300 will-change-transform ring-1 ring-black/10">
+                    <article class="reel relative aspect-[9/16] rounded-2xl overflow-hidden bg-black ring-1 ring-black/10">
                         <video class="absolute inset-0 h-full w-full object-cover" preload="metadata" playsinline muted>
                             <source src="assets/video/mejiacongreso.mp4" type="video/mp4">
                         </video>
@@ -93,7 +87,7 @@
                     </article>
 
                     <!-- Reel 3 -->
-                    <article class="reel relative aspect-[9/16] rounded-2xl overflow-hidden bg-black transition-transform duration-300 will-change-transform ring-1 ring-black/10">
+                    <article class="reel relative aspect-[9/16] rounded-2xl overflow-hidden bg-black ring-1 ring-black/10">
                         <video class="absolute inset-0 h-full w-full object-cover" preload="metadata" playsinline muted>
                             <source src="assets/video/luciacongreso.mp4" type="video/mp4">
                         </video>
@@ -127,14 +121,13 @@
             } catch (e) { console.error(e); }
 
             // Footer
-            //try { await loadPartial('footer', 'partials/footer.html'); } catch (e) { console.error(e); }
+            try { await loadPartial('footer', './partials/footer.html'); } catch (e) { console.error(e); }
 
             // Reels
             const grid = document.getElementById('reels-grid');
             if (!grid) return;
 
             const cards = [...grid.querySelectorAll('.reel')];
-            const hint  = document.getElementById('tap-hint');
 
             function setActive(i) {
                 cards.forEach((card, idx) => {
@@ -143,34 +136,44 @@
                     const active = idx === i;
 
                     card.classList.toggle('reel-active', active);
-                    play.classList.toggle('reel-play', active);
-                    play.classList.toggle('hidden', !active);
 
-                    if (!active && !vid.paused) vid.pause();
+                    if (active) {
+                        play.classList.add('hidden');
+                    } else {
+                        play.classList.remove('hidden');
+                        vid.pause();
+                        vid.muted = true;
+                    }
                 });
-                if (hint) hint.classList.add('hidden');
+
+                if (i >= 0) {
+                    const activeCard = cards[i];
+                    const vid = activeCard.querySelector('video');
+                    const onEnd = (e) => {
+                        if (e.propertyName !== 'flex') return;
+                        vid.muted = false;
+                        vid.play().catch(() => {});
+                        activeCard.removeEventListener('transitionend', onEnd);
+                    };
+                    activeCard.addEventListener('transitionend', onEnd);
+                }
             }
 
-            // Activar uno por defecto para comprobar
-            setActive(1);
-
             cards.forEach((card, idx) => {
-                card.addEventListener('click', () => setActive(idx));
-
                 const playBtn = card.querySelector('.play');
                 const vid     = card.querySelector('video');
 
+                card.addEventListener('click', () => setActive(idx));
+
                 playBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    setActive(idx);
+                    vid.muted = false;
                     vid.play().catch(() => {});
-                    playBtn.classList.remove('reel-play');
                     playBtn.classList.add('hidden');
-
-                    const show = () => { playBtn.classList.add('reel-play'); playBtn.classList.remove('hidden'); };
-                    vid.addEventListener('pause', show, { once: true });
-                    vid.addEventListener('ended', show, { once: true });
                 });
+
+                vid.addEventListener('pause', () => playBtn.classList.remove('hidden'));
+                vid.addEventListener('ended', () => playBtn.classList.remove('hidden'));
             });
         });
     </script>

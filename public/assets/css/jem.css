@@ -13,8 +13,12 @@
     transform-origin: center;
     will-change: transform;
   }
+  .reel {
+    flex: 1 1 0%;
+    transition: flex 0.4s ease;
+  }
   .reel-active { /* estado enfocado */
-    transform: scale(1.05);
+    flex: 2 1 0%;
     z-index: 10;
     box-shadow: 0 0 0 2px rgb(5 150 105); /* emerald-600 */
   }
