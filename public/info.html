@@ -15,9 +15,9 @@
     <title>¿Qué es JeM?</title>
     <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Tu tema/utilidades globales -->
+    <!-- Tema/utilidades globales -->
     <link href="assets/css/jem.css" rel="stylesheet" type="text/tailwindcss">
-    <!-- Preconexiones y carga de fuente Urbanist -->
+    <!-- Fuente Urbanist -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -37,12 +37,6 @@
                 <h1 class="text-4xl md:text-4xl font-extrabold text-gray-900">
                 ¿Qué es Juventud en Marcha?
                 </h1>
-
-                <p class="mt-4 text-gray-700 md:text-lg">
-                Somos Juventud en Marcha: jóvenes trabajadores que organizamos actividades,
-                formación y campañas por barrios más vivos, empleo digno y servicios públicos
-                de calidad. Creemos en la organización, la cultura y la acción comunitaria.
-                </p>
 
                 <p class="mt-4 text-gray-700 md:text-lg">
                 Somos Juventud en Marcha: jóvenes trabajadores que organizamos actividades,
@@ -127,7 +121,7 @@
             } catch (e) { console.error(e); }
 
             // Footer
-            //try { await loadPartial('footer', 'partials/footer.html'); } catch (e) { console.error(e); }
+            try { await loadPartial('footer', './partials/footer.html'); } catch (e) { console.error(e); }
 
             // Reels
             const grid = document.getElementById('reels-grid');
