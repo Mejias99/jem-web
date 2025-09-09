@@ -27,29 +27,38 @@
         <p class="text-gray-600 mb-8">Rellena el formulario y forma parte de una comunidad joven, activa y con ganas de cambiar las cosas.</p>
 
         <!-- Formulario de inscripción -->
-        <form class="bg-white rounded-2xl shadow-xl p-6 space-y-5 text-left">
+        <form name="inscripcion-form" method="POST" data-netlify="true" action="" class="bg-white rounded-2xl shadow-xl p-6 space-y-5 text-left">
+            
+            <!-- Campo oculto para Netlify -->
+            <input type="hidden" name="form-name" value="inscripcion-juventud">
+
+            <!-- Campo anti-spam oculto -->
+            <div style="display: none;">
+                <label>No rellenes este campo si eres humano: <input name="bot-field" /></label>
+            </div>
+            
             <div>
-                <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre o apodo</label>
-                <input type="text" id="nombre" name="nombre" required
-                class="mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
+                <label for="nombre" class="block text-sm font-medium text-gray-700">¿Cómo prefieres que te llamen?</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Nombre, apodo..."
+                class="border mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
             </div>
 
             <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">Contacto (whatsapp, insta,..)</label>
-                <input type="email" id="email" name="email" required
-                class="mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
+                <label for="contacto" class="block text-sm font-medium text-gray-700">¿Por dónde te contactamos? (whatsapp, insta,..)</label>
+                <input type="text" id="contacto" name="contacto" placeholder="@usuario_insta, 665 000 322.." required
+                class="border mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
             </div>
 
             <div>
-                <label for="edad" class="block text-sm font-medium text-gray-700">Edad</label>
-                <input type="number" id="edad" name="edad" min="16" max="30" required
-                class="mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
+                <label for="edad" class="block text-sm font-medium text-gray-700">¿Qué edad tienes?</label>
+                <input type="number" id="edad" name="edad" min="14" max="35" required
+                class="border mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
             </div>
 
             <div>
-                <label for="intereses" class="block text-sm font-medium text-gray-700">Nota (opcional)</label>
-                <textarea id="intereses" name="intereses" rows="3"
-                class="mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2"></textarea>
+                <label for="intereses" class="block text-sm font-medium text-gray-700">Nota o intereses (opcional)</label>
+                <textarea id="intereses" name="intereses" rows="3" placeholder="Quiero ser miembro porque me interesa/interesaría..."
+                class="border mt-1 w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2"></textarea>
             </div>
 
             <button type="submit"
