@@ -27,7 +27,10 @@
         <p class="text-gray-600 mb-8">Rellena el formulario y forma parte de una comunidad joven, activa y con ganas de cambiar las cosas.</p>
 
         <!-- Formulario de inscripción -->
-        <form name="inscripcion-form" method="POST" data-netlify="true" class="bg-white rounded-2xl shadow-xl p-6 space-y-5 text-left">
+        <form id="inscripcion-form" 
+            name="inscripcion-form" method="POST" action="/" 
+            data-netlify="true" data-netlify-honeypot="bot-field"
+            class="bg-white rounded-2xl shadow-xl p-6 space-y-5 text-left">
             
             <!-- Campo oculto para Netlify -->
             <input type="hidden" name="form-name" value="inscripcion-juventud">
@@ -53,7 +56,7 @@
 
             
                 <label for="intereses" class="block text-sm font-medium text-gray-700">Nota o intereses (opcional)</label>
-                <textarea id="intereses" name="intereses" id="intereses" rows="3" placeholder="Quiero ser miembro porque me interesa/interesaría..."
+                <textarea id="intereses" name="intereses" rows="3" placeholder="Quiero ser miembro porque me interesa/interesaría..."
                 class="border w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2"></textarea>
             
 
@@ -186,7 +189,7 @@
                 body: new URLSearchParams(formData).toString()
             });
             
-            if (response.ok) {
+            if (response.ok || response.status === 303) {
                 // Mostrar modal de éxito
                 modal.classList.remove('hidden');
                 form.reset();
