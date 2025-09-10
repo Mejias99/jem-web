@@ -29,7 +29,7 @@
         <!-- Formulario de inscripción -->
         <form id="inscripcion-form" 
             name="inscripcion-juventud" method="POST" action="/" 
-            data-netlify="true" netlify data-netlify-honeypot="bot-field"
+            data-netlify="true" data-netlify-honeypot="bot-field"
             class="bg-white rounded-2xl shadow-xl p-6 space-y-5 text-left">
             
             <!-- Campo oculto para Netlify -->
@@ -69,6 +69,13 @@
         <!-- Llamado alternativo -->
         <p class="mt-7 text-gray-700">¿Tienes dudas? <a class="text-green-950 font-semibold">Ponte en contacto con nosotros a través de Instagram</a>.</p>
     </main>
+
+    <form name="inscripcion-juventud" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="nombre">
+        <input type="text" name="contacto">
+        <input type="number" name="edad">
+        <textarea name="intereses"></textarea>
+    </form>
 
     <!-- Modal de éxito -->
     <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
@@ -182,6 +189,9 @@
         try {
             // Enviar formulario a Netlify
             const formData = new FormData(form);
+            if (!formData.has('form-name')) {
+                formData.set('form-name', 'inscripcion-juventud');
+            }
             
             const response = await fetch('/', {
                 method: 'POST',
