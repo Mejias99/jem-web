@@ -151,7 +151,6 @@
     const form = document.getElementById('barrio-form');
     const submitBtn = document.getElementById('submit-btn');
     const modal = document.getElementById('success-modal');
-    const closeModalButton = document.getElementById('close-modal-btn');
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -196,8 +195,6 @@
     function closeModal() {
         modal.classList.add('hidden');
     }
-    
-    closeModalButton.addEventListener('click', closeModal);
     
     // Cerrar modal al hacer clic fuera
     modal.addEventListener('click', function(e) {
