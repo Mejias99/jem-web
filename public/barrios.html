@@ -37,21 +37,7 @@
 
             <!-- Campo anti-spam oculto -->
                 <label style="display: none;">No rellenes este campo si eres humano: <input name="bot-field" /></label>
-                
-                <label for="nombre" class="block text-sm font-medium text-gray-700">¿Cómo prefieres que te llamen?</label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Nombre, apodo..."
-                class="border w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
-            
-            
-                <label for="contacto" class="block text-sm font-medium text-gray-700">¿Por dónde te contactamos? (whatsapp, insta,..)</label>
-                <input type="text" id="contacto" name="contacto" placeholder="@usuario_insta, 665 000 322.." required
-                class="border w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
-            
 
-            
-                <label for="edad" class="block text-sm font-medium text-gray-700">¿Qué edad tienes?</label>
-                <input type="number" id="edad" name="edad" min="14" max="35" required
-                class="border w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none px-3 py-2">
 
 
                 <label for="barrio" class="block text-sm font-medium text-gray-700">¿De qué barrio vas a hablar?</label>
@@ -77,9 +63,6 @@
 
     <form name="barrio-juventud" netlify netlify-honeypot="bot-field" hidden>
         <input type="hidden" name="form-name" value="barrio-juventud">
-        <input type="text" name="nombre">
-        <input type="text" name="contacto">
-        <input type="number" name="edad">
         <input type="text" name="barrio">
         <textarea name="intereses"></textarea>
     </form>
@@ -93,13 +76,13 @@
                 <div class="text-6xl mb-4">🎉</div>
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">¡Idea Recibida!</h2>
                 <p class="text-gray-600 mb-6">
-                    Hemos recibido tu idea correctamente. <strong>Nos pondremos en contacto contigo</strong> a través del método que nos indicaste.
+                    Hemos recibido tu idea correctamente. <strong>Puedes ponerte en contacto con nosotros</strong> para contarnos más a través de nuestras redes sociales.
                 </p>
                 
                 <!-- Información adicional -->
                 <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
                     <h3 class="font-semibold text-green-800 mb-2">Mientras tanto...</h3>
-                    <p class="text-green-700 text-sm">¡Síguenos en nuestras redes sociales para no perderte nada!</p>
+                    <p class="text-green-700 text-sm">¡Síguenos para no perderte nada!</p>
                 </div>
                 
                 <!-- Redes sociales -->
