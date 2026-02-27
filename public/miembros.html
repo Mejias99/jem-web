@@ -12,13 +12,13 @@
     body { font-family: 'Urbanist', sans-serif; }
   </style>
 </head>
-<body class="bg-gradient-to-b from-[#148E75] via-pink-100 to-[#148E75] flex flex-col items-center justify-center min-h-screen">
+<body class="bg-gradient-to-b from-[#148E75] via-pink-100 to-[#148E75] flex flex-col min-h-screen pt-15">
 
   <!-- Header -->
   <div id="header"></div>
 
   <!-- Contenido principal -->
-  <main class="flex-grow flex items-center justify-center px-4 text-center">
+  <main class="flex-grow flex items-center justify-center px-4 text-center py-12">
     <div class="max-w-lg">
       <!-- Icono animado -->
       <div class="mb-6">
@@ -48,9 +48,32 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <div id="footer"></div>
+  <!-- Footer dinámico -->
+    <footer id="footer"></footer>
 
-  <script type="module" src="/js/main.js"></script>
+  <script type="module">
+     window.addEventListener('DOMContentLoaded', async () => {
+      async function loadPartial(targetId, url){
+          const el = document.getElementById(targetId);
+          if (!el) throw new Error(`No existe #${targetId}`);
+          const resp = await fetch(url, { cache: 'no-cache' });
+          if (!resp.ok) throw new Error(`No se pudo cargar ${url}`);
+          el.innerHTML = await resp.text();
+          return el;
+      }
+
+      // Header
+      try {
+        const headerEl = await loadPartial('header', './partials/header.html');
+        const { initHeader } = await import('./js/header.js');
+        initHeader(headerEl);
+      } catch (e) { console.error(e); }
+
+      // Footer
+      try { 
+        await loadPartial('footer', 'partials/footer.html'); 
+      } catch (e) { console.error(e); }
+
+    })</script>
 </body>
 </html>
