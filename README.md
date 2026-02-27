@@ -1,7 +1,7 @@
 +51-0
 # Juventud en Marcha Web
 
-Este repositorio contiene una versión estática del sitio de **Juventud en Marcha**, cuyo objetivo es orientar a los usuarios hacia información general, proceso de inscripción o acceso para miembros existentes.
+Este repositorio contiene la versión oficial del sitio web de **Juventud en Marcha**, cuyo objetivo es orientar a los usuarios hacia información general, proceso de inscripción o acceso para miembros existentes.
 
 ## Dependencias
 
@@ -49,3 +49,4 @@ jem-web/
 2. Realiza los cambios necesarios y verifica que el sitio se visualice correctamente.
 3. Abre un Pull Request describiendo los cambios realizados.
 4. El equipo revisará y fusionará tu contribución si cumple con los lineamientos del proyecto.
+
